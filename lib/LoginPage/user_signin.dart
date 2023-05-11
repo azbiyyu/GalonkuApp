@@ -128,7 +128,9 @@ class _UserSignInState extends State<UserSignIn> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => VerifOTP()),
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  VerifOTP(isFromUserSignIn: true)),
                         );
                       },
                     ),

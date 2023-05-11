@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:galonku/LandingPage/login_role.dart';
 import 'package:galonku/LoginPage/mitra_input.dart';
 
 class VerifOTP extends StatefulWidget {
-  const VerifOTP({Key? key}) : super(key: key);
+  final bool isFromUserSignIn;
+  const VerifOTP({Key? key, required this.isFromUserSignIn}) : super(key: key);
 
   @override
   State<VerifOTP> createState() => _VerifOTPState();
@@ -62,11 +64,21 @@ class _VerifOTPState extends State<VerifOTP> {
                         ElevatedButton(
                           onPressed: _otpCode.length == 6
                               ? () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => MitraInput()),
-                                  );
+                                  if (widget.isFromUserSignIn) {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => LoginRole(),
+                                      ),
+                                    );
+                                  } else {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => MitraInput(),
+                                      ),
+                                    );
+                                  }
                                 }
                               : null,
                           style: ElevatedButton.styleFrom(
