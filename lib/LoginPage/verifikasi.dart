@@ -5,6 +5,7 @@ import 'package:galonku/LoginPage/mitra_input.dart';
 class VerifOTP extends StatefulWidget {
   final bool isFromUserSignIn;
   const VerifOTP({Key? key, required this.isFromUserSignIn}) : super(key: key);
+  static const nameRoute = '/verifikasi';
 
   @override
   State<VerifOTP> createState() => _VerifOTPState();
@@ -65,19 +66,11 @@ class _VerifOTPState extends State<VerifOTP> {
                           onPressed: _otpCode.length == 6
                               ? () {
                                   if (widget.isFromUserSignIn) {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => LoginRole(),
-                                      ),
-                                    );
+                                    Navigator.pushNamed(
+                                        context, LoginRole.nameRoute);
                                   } else {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) => MitraInput(),
-                                      ),
-                                    );
+                                    Navigator.pushNamed(
+                                        context, MitraInput.nameRoute);
                                   }
                                 }
                               : null,

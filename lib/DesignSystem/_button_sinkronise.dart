@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class BtnSinkronise extends StatelessWidget {
+class ButtonSinkronise extends StatelessWidget {
   final String image;
   final String text;
   final VoidCallback? onPressed;
 
-  const BtnSinkronise({
+  const ButtonSinkronise({
     Key? key,
     required this.image,
     required this.text,

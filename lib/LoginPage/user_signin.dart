@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:galonku/DesignSystem/_button_primary.dart';
 import 'package:galonku/DesignSystem/_group_syarat_ketentuan.dart';
 import 'package:galonku/DesignSystem/_heading.dart';
-import 'package:galonku/LoginPage/mitra_login.dart';
 import 'package:galonku/DesignSystem/_button_sinkronise.dart';
 import 'package:galonku/LoginPage/user_login.dart';
 import 'package:galonku/LoginPage/verifikasi.dart';
 
 class UserSignIn extends StatefulWidget {
   const UserSignIn({super.key});
+  static const nameRoute = '/usersignin';
 
   @override
   State<UserSignIn> createState() => _UserSignInState();
@@ -38,13 +38,13 @@ class _UserSignInState extends State<UserSignIn> {
                     ),
                   ),
                   SizedBox(height: 40),
-                  BtnSinkronise(
+                  ButtonSinkronise(
                     image: "images/google_logo.png",
                     text: "Sinkronasi Dengan Google",
                     onPressed: () {},
                   ),
                   SizedBox(height: 10),
-                  BtnSinkronise(
+                  ButtonSinkronise(
                     image: "images/facebook_logo.png",
                     text: "Sinkronasi Dengan Facebook",
                     onPressed: () {},
@@ -115,15 +115,12 @@ class _UserSignInState extends State<UserSignIn> {
                   ),
                   GroupSyaratKetentuan(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => UserLogin()),
-                      );
+                      //Navigator.pushNamed(context, routeName)
                     },
                   ),
                   Container(
                     padding: EdgeInsets.only(top: 10),
-                    child: BtnPrimary(
+                    child: ButtonPrimary(
                       text: "Daftar",
                       onPressed: () {
                         Navigator.push(
@@ -148,12 +145,7 @@ class _UserSignInState extends State<UserSignIn> {
                         ),
                         InkWell(
                           onTap: () {
-                            // aksi yang dijalankan saat teks diklik
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => MitraLogin()),
-                            );
+                            Navigator.pushNamed(context, UserLogin.nameRoute);
                           },
                           child: Text(
                             "Masuk",
